@@ -26,7 +26,7 @@
 硬體接線
 ---------
 
- ![image](https://github.com/liping588/mp3_player/blob/master/image/mp3_link.jpeg)
+ ![image](https://github.com/liping588/mp3_player/blob/master/image/mp3_pic.jpg)
 
 * ARDUINO UNO R3 PIN_2  -> HX1838 紅外線接收頭 VOUT
 * ARDUINO UNO R3 PIN_3  -> 七段顯示模組 CLK
