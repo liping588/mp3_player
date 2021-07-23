@@ -10,7 +10,7 @@
     * 購買網址：https://goods.ruten.com.tw/item/show?21532302854342
 * 七段顯示模組 (驅動晶片：TM1637)
     * 購買網址：https://goods.ruten.com.tw/item/show?21643107650926
-* 21鍵紅外線遙控器(NEC編碼) + HX1838 紅外線接收頭 
+* 21鍵紅外線遙控器(NEC編碼) + VS1838 紅外線接收頭
     * 購買網址：https://www.ruten.com.tw/item/show?21310198500426
 * 5鍵類比鍵盤模組
     * 購買網址：https://www.ruten.com.tw/item/show?22018503365656
@@ -28,14 +28,54 @@
 
  ![image](https://github.com/liping588/mp3_player/blob/master/image/mp3_pic%20.jpg)
 
-* ARDUINO UNO R3 PIN_2  -> HX1838 紅外線接收頭 VOUT
-* ARDUINO UNO R3 PIN_3  -> 七段顯示模組 CLK
-* ARDUINO UNO R3 PIN_4  -> 七段顯示模組 DIO
-* ARDUINO UNO R3 PIN_10 -> 1KΩ電阻 - DFPlayer Mini MP3 PIN3(TX)
-* ARDUINO UNO R3 PIN_11 -> 1KΩ電阻 - DFPlayer Mini MP3 PIN2(RX)
-* ARDUINO UNO R3 PIN_A0 -> 5鍵類比鍵盤模組 OUT
-* DFPlayer Mini MP3 PIN6(SPK-) -> 全頻喇叭 PIN -
-* DFPlayer Mini MP3 PIN8(SPK+) -> 全頻喇叭 PIN +
+* ARDUINO UNO R3 PIN_2  --> VS1838 紅外線接收頭 VOUT
+    * VS1838: 建議 VOUT 接 10KΩ 電阻上拉到 VCC，而  VCC 串 100Ω 電阻
+* ARDUINO UNO R3 PIN_3  --> 七段顯示模組 CLK
+* ARDUINO UNO R3 PIN_4  --> 七段顯示模組 DIO
+* ARDUINO UNO R3 PIN_10 --> 1KΩ電阻 - DFPlayer Mini MP3 PIN_3(TX)
+* ARDUINO UNO R3 PIN_11 --> 1KΩ電阻 - DFPlayer Mini MP3 PIN_2(RX)
+* ARDUINO UNO R3 PIN_A0 --> 5鍵類比鍵盤模組 OUT
+* DFPlayer Mini MP3 PIN6(SPK-) --> 全頻喇叭 PIN -
+* DFPlayer Mini MP3 PIN8(SPK+) --> 全頻喇叭 PIN +
 
-程式碼編譯方法
+程式編譯與下載
 --------------
+
+* 1.在 mp3_player.ino 檔案按二下會開啟 Arduino IDE
+
+* 2.在 [草稿碼]->[匯入程式庫]->[管理程式庫] 安裝下列四個模組
+    * IRremote               (控制紅外線發線與接收)
+    * Grove 4Digital Display (控制 TM1637 七段顯示器模組)
+    * DFRobotDFPlayerMini    (控制 DFPlayerMini MP3 播放模組)
+    * TimerOne               (定時器函式)
+
+* 3.按下 ✔ 圖形以編譯程式，如果程式庫都有安裝，編譯應該不會有錯誤
+
+* 4.確認 [工具]->[序列埠] 是否選擇正確
+
+* 5.按下 ➔ 圖形下載程式到 ARDUINO UNO R3 板子上
+
+操作說明
+--------
+
+* DFPlayer Mini MP3 的 SD 卡的檔案配置
+    * 1.將 SD 卡格式化為 FAT 或 FAT32
+    * 2.修改 MP3 檔名格式為 四位數字 + 底線 + 歌曲名稱
+        - 範例1：0001_歌曲1.mp3
+        - 範例2：0050_abc123.mp3
+    * 3.在根目錄下建立一個 mp3 目錄並將修改好的 MP3 檔案放進去
+
+* 紅外線遙控器
+    * PLAY/PAUSE: 播放或暫停
+    * PREV: 切換到上一首
+    * NEXT: 切換到下一首
+    * VOL+: 大聲
+    * VOL-: 小聲
+    * EQ: 音效模式切換(共五種)
+
+* 類比鍵盤
+    * SW1: 切換到上一首
+    * SW2: 大聲
+    * SW3: 小聲
+    * SW4: 切換到下一首
+    * SW5: 播放或暫停
