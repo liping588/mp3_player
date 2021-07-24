@@ -58,9 +58,9 @@
 操作說明
 --------
 
-* DFPlayer Mini MP3 的 SD 卡的檔案配置
+* DFPlayer Mini MP3 的 SD 卡檔案配置
     * 1.將 SD 卡格式化為 FAT 或 FAT32
-    * 2.修改 MP3 檔名格式為 四位數字 + 底線 + 歌曲名稱
+    * 2.修改 MP3 檔名格式為 0001~0099數字 + 底線 + 歌曲名稱
         - 範例1：0001_歌曲1.mp3
         - 範例2：0050_abc123.mp3
     * 3.在根目錄下建立一個 mp3 目錄並將修改好的 MP3 檔案放進去
@@ -89,10 +89,10 @@
 --------
 
 * 增加功放晶片 PAM8403(5v,4Ω,3W+3W)
-    * 參考1網址：https://goods.ruten.com.tw/item/show?21444615471874
-    * 參考2網址：https://goods.ruten.com.tw/item/show?21708318144504
+    * 參考網址1：https://goods.ruten.com.tw/item/show?21444615471874
+    * 參考網址2：https://goods.ruten.com.tw/item/show?21708318144504
 
-* 增加循環播與隨機放功能
+* 增加循環與隨機放功能
     * 透過紅外線遙控器 CH, CH+, CH- 按鍵來作為模式切換
 
 * 增加記憶功能
